@@ -1,0 +1,8 @@
+/** GLOBAL */
+
+/*~ global grid layout */
+
+.main-wrap {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(5px, 1fr));
+}
