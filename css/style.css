@@ -6,3 +6,12 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(5px, 1fr));
 }
+
+/** TYPOGRAPHY */
+
+/*~ font imports */
+
+@font-face {
+    font-family: Roboto;
+    src: url(/fonts/Roboto-Regular.ttf);
+}
