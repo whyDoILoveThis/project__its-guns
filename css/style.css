@@ -27,8 +27,7 @@ body {
     font-size: 62.5%;
 }
 
-/*~ global grid layout */
-
+/*~ sets global grid layout */
 .main-wrap {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(5px, 1fr));
@@ -37,16 +36,17 @@ body {
 /** TYPOGRAPHY */
 
 /*~ font imports */
-
 @font-face {
     font-family: Roboto;
     src: url(/fonts/Roboto-Regular.ttf);
+
+    font-family: Quantico;
+    src: url(/fonts/Quantico-Regular.ttf);
 }
 
 /** NAVIGATION */
 
 /*~ general positioning */
-
 .nav-top {
     background: #1A2B34;
     color: white;
@@ -58,7 +58,6 @@ body {
 }
 
 /*~ list appearance */
-
 .nav-top__list--max-width-wrap {
     width: 1170px;
     display: flex;
