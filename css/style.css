@@ -49,7 +49,7 @@ body {
 /*~ general positioning */
 .nav-top {
     background: #1A2B34;
-    color: white;
+    color: rgba(255, 255, 255, 0.582);
     display: flex;
     text-transform: uppercase;
     /*? canters the nav-top-max-width-wrap */
