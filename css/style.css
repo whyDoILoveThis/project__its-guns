@@ -1,5 +1,9 @@
 /** GLOBAL */
 
+:root {
+    --color--primary: #B8885F;
+}
+
 *,
 *::before,
 *::after {
