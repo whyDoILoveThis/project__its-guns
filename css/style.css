@@ -1,5 +1,15 @@
 /** GLOBAL */
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 62.5%;
+}
+
 /*~ global grid layout */
 
 .main-wrap {
