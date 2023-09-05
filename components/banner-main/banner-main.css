@@ -1,0 +1,162 @@
+
+:root {
+    --banner-main-height: 500px;
+    --color--primary: #B8885F;
+    --color--primary-hover:#ac7e57ec;
+
+}
+
+body {
+    font-size: 62.5%;
+}
+
+/** BANNERS */
+
+/*& BANNER-MAIN */
+.banner {
+    width: 100%;
+    height: var(--banner-main-height);
+    overflow: hidden;
+    /*? the banner itself must be relative pos for
+        the absolute pos of the sections to work */
+    position: relative;
+}
+
+/*~ positioning & drop-shadow */
+.banner__section {
+    width: 100%;
+    height: var(--banner-main-height);
+    /*? so they all overlap */
+    position: absolute;
+    left: 0;
+    top: 0;
+    /*? background pos */
+    background-size:cover;
+    background-position: center;
+    /*? for background-color visibility
+        so we can see shadow overlay */
+    background-blend-mode:color;
+    background-color: rgba(0, 0, 0, 0.425);
+    transition: opacity 0.5s ease-in-out;
+    /*? hide unless active with js */
+    opacity: 0;
+    /*? line up header, tagline, & btn */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+/*~ js iterates through banner sections at set interval */
+.banner__section.active {
+    opacity: 1;
+}
+
+/*& BANNER-MAIN background images */
+
+/*~ several options were explored and it was concluded 
+    that due to the way i needed the images to overlap 
+    that this would be the best solution. To add additional
+    banner sections you will need to create a subsequent 
+    banner__section--# class */
+/** BANNERS */
+
+/*& BANNER-MAIN */
+.banner {
+    width: 100%;
+    height: var(--banner-main-height);
+    overflow: hidden;
+    /*? the banner itself must be relative pos for
+        the absolute pos of the sections to work */
+    position: relative;
+}
+
+/*~ positioning & drop-shadow */
+.banner__section {
+    width: 100%;
+    height: var(--banner-main-height);
+    /*? so they all overlap */
+    position: absolute;
+    left: 0;
+    top: 0;
+    /*? background pos */
+    background-size:cover;
+    background-position: center;
+    /*? for background-color visibility
+        so we can see shadow overlay */
+    background-blend-mode:color;
+    background-color: rgba(0, 0, 0, 0.425);
+    transition: opacity 0.5s ease-in-out;
+    /*? hide unless active with js */
+    opacity: 0;
+    /*? line up header, tagline, & btn */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+/*~ js iterates through banner sections at set interval */
+.banner__section.active {
+    opacity: 1;
+}
+
+/*& BANNER-MAIN background images */
+
+/*~ several options were explored and it was concluded 
+    that due to the way i needed the images to overlap 
+    that this would be the best solution. To add additional
+    banner sections you will need to create a subsequent 
+    banner__section--# class */
+.banner__section--1 {
+    background-image: url(banner-main-imgs/image2.jpg);
+}
+
+.banner__section--2 {
+    background-image: url(banner-main-imgs/image1.jpg);
+}
+
+/*& BANNER-MAIN typography */
+.banner__header {
+    font-family: Quantico, Arial, Helvetica, sans-serif;
+    font-size: 45px;
+    color: white;
+    margin: 0 1.5rem;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);
+}
+
+.banner__tagline {
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: white;
+    margin: 1.5rem;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+}
+
+.banner__tagline em {
+    font-weight: 800;
+    font-size: 22px;
+    font-style: normal;
+}
+
+.banner__btn {
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    background: var(--color--primary);
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 1.2px;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+    border: 0;
+    /*? want to make sure the button will keep
+        round edges no matter the size of its contents */
+    border-radius: 999px;
+    padding: 0.5rem 1rem;
+}
+
+.banner__btn:hover {
+    background-color: var(--color--primary-hover);
+}
