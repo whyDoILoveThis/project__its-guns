@@ -67,6 +67,7 @@ a {
 }
 
 .btn {
+    width: fit-content;
     font-family: Roboto, Arial, Helvetica, sans-serif;
     background: var(--color--primary);
     font-size: 18px;
@@ -74,11 +75,12 @@ a {
     letter-spacing: 1.2px;
     color: white;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
-    border: 0;
+    border: 1px solid var(--color--light-black);
     /*? want to make sure the button will keep
         round edges no matter the size of its contents */
     border-radius: 999px;
     padding: 0.5rem 1rem;
+    cursor: pointer;
 }
 
 .btn:hover {
@@ -586,6 +588,76 @@ a {
       }
     
     }    
+
+    /*& BANNER_SPOTLIGHT */
+
+.banner-spotlight {
+  height: 550px;
+  color: white;
+}
+
+.banner-spotlight__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: 100%;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.banner-spotlight__spotlight {
+  background-position: center;
+  background-size: cover;
+  /*? for background-color visibility
+      so we can see shadow overlay */
+      background-blend-mode:color;
+      background-color: rgba(0, 0, 0, 0.26);
+      box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 1rem 2rem 1rem;
+  }
+
+.banner-spotlight--1 {
+  background-image: url(/img/banner-main-img-1.jpg);
+}
+
+.banner-spotlight--2 {
+  background-image: url(/img/banner-main-img-2.jpg);
+}
+
+.banner-spotlight--3 {
+  background-image: url(/img/banner-main-img-3.jpg);
+}
+
+.banner-spotlight__tagline {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.banner-spotlight__heading {
+  font-family: Quantico, Arial, Helvetica, sans-serif;
+  font-size: 32px;
+  letter-spacing: 1.5px;
+  margin: 0  0 0.5rem 0;
+}
+
+@media screen and (max-width: 1024px) {
+  .banner-spotlight {
+      height: 360vh;
+  }
+  .banner-spotlight__grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+  }
+
+  .banner-spotlight__spotlight {
+      height: 70vh;
+  }
+}
 
 /** CALLOUTS */
 
