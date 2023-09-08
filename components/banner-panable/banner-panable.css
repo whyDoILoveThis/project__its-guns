@@ -1,0 +1,252 @@
+/* Basic styles for the container and grid */
+
+
+:root {
+      /**COLORS*/
+      /*! ******/
+      /*^ ******/
+      /*? ******/
+    --color--primary: #B8885F;
+    --color--primary-hover: #a37246;
+    --color--discount-tag: #9c2f2f;
+    --color--navy: #154977;
+    --color--deep-dark-blue: #003349;
+    --color--deep-dark-blue-faded: #0033498b;
+    --color--light-grey: #CBCBCB;
+    --color--lighter-grey: #F8F8F8;
+    --color--light-black: #424242;
+    /*~ transparent */
+    --color--transparent--thin-black: rgba(0, 0, 0, 0.2);
+    --color--transparent--thinner-black: rgba(0, 0, 0, 0.1);
+
+}
+
+
+a {
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: Quantico;
+    src: url(/fonts/Quantico-Regular.ttf);
+
+    font-family: Roboto;
+    src: url(/fonts/Roboto-Regular.ttf);
+}
+
+/*& BANNER__PANABLE */
+/*^ JS needed */
+
+/*TODO: FIX NOT ALLOWING SCROLLING LEFT AFTER BUTTON CLICK
+  this is likly due to the entire container transforming left but,
+  then at the end there is no overflow to scroll because youre at the end*/
+
+.banner-panable {
+background-color: #EDEDED;/*! REMOVE BEFORE USE*/
+font-family: Quantico, Arial, Helvetica, sans-serif;
+width: 100%;
+text-transform: uppercase;
+font-size: 16px;
+padding: 1rem;
+}
+
+.banner-panable__see-all {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.banner-panable__see-all a {
+ color: var(--color--deep-dark-blue);
+ text-decoration: none;
+ font-size: 18px;
+ font-weight: 600;
+ padding-right: 1rem;
+}
+
+.banner-panable__see-all a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 0.13rem;
+}
+
+/*& BANNER__PANABLE  top-bit */
+
+.banner-panable__head {
+  display: flex;
+  align-items: center;
+}
+
+.banner-panable__heading {
+  margin: 1rem;
+  color: var(--color--deep-dark-blue);
+}
+
+/*& BANNER__PANABLE  arrow styles */
+.banner-panable__arrow {
+  background-color: transparent;
+  cursor: pointer;
+  /*? makes selection impossible */
+  user-select: none;
+  /*? keeps left button from moving right button
+      when hover & border-size increases */
+  line-height: 0;
+  /*? control button-size with font-size & padding 
+      width may also need adjustment */
+  font-size: 37px;
+  padding: 0.7rem 0.5rem 1.1rem 0.5rem;
+  width: 3.3rem;
+  border: 1.2px solid;
+  border-radius: 14px;
+  margin: 0.5rem;
+}
+
+.banner-panable__arrow:active,
+.banner-panable__arrow:hover {
+  color: var(--color--deep-dark-blue);
+  border-color: var(--color--deep-dark-blue);
+  border-width: 1.8px;
+}
+
+.banner-panable__arrow-left {
+  color: var(--color--deep-dark-blue-faded);
+}
+.banner-panable__arrow-right {
+  color: var(--color--deep-dark-blue);
+}
+
+.banner-panable__arrow-left:hover {
+  transform: translateX(-0.05rem);
+}
+
+.banner-panable__arrow-right:hover {
+  transform: translateX(0.04rem);
+}
+
+
+/*& BANNER__PANABLE product-container */
+.banner-panable__product-container {
+  display: flex;
+  width: 100%;
+  overflow-x: auto;
+}
+
+/*~ remove scrollbar but keep funtionality */
+.banner-panable__product-container::-webkit-scrollbar-track,
+.banner-panable__product-container::-webkit-scrollbar,
+.banner-panable__product-container::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+/*~ items overflow grid which overflow container.
+container scrolls X-overflow*/
+.banner-panable__product-grid {
+  width: 100%;
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+}
+
+/*& BANNER__PANABLE  the products */
+.banner-panable__product {
+  /*? how much each product takes and subtract left & right margin*/
+  flex: 0 0 calc(50% - (1rem * 2)); /* 2 cloumns */
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  background-color: var(--color--lighter-grey);
+  border: 1px solid var(--color--transparent--thinner-black);
+  border-radius: 0.8rem;
+  padding: 0.8rem;
+  margin: 0 1rem;
+}
+
+.banner-panable__product-brand {
+  color: var(--color--navy);
+  margin: 0;
+}
+
+.banner-panable__product-name {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  color: var(--color--light-black);
+  margin: 0;
+}
+
+/*& BANNER__PANABLE  image */
+.banner-panable__product-img-container {
+  width: 100%;
+  justify-self: center;
+  align-self: center;
+  background-color: white;
+  border: 1px solid var(--color--light-grey);
+  
+}
+
+a .banner-panable__product-discount-tag,
+.banner-panable__product-discount-tag {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  background-color: var(--color--discount-tag);
+  color: white;
+  position: relative;
+  left: -2px;
+  top: 1.5px;
+  text-transform: none;
+  font-size: 12px;
+  font-weight: 500;
+  clip-path: polygon(0 0, 90% 0, 100% 50%, 90% 100%, 0 100%);
+  padding: 0.2rem;
+  padding-right: 1rem;
+}
+
+a .banner-panable__product-discount-tag:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 0.1rem;
+}
+
+.banner-panable__product-img {
+  object-fit: contain;
+  width: 100%;
+  max-height: 86px;
+  margin: 0.2rem;
+}
+
+/*& BANNER__PANABLE  pricing */
+.banner-panable__product-pricing-group {
+  color: var(--color--primary);
+  display: flex;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+
+.banner-panable__product-pricing-group *   {
+  margin: 0.5rem 0 0 0;
+}
+
+.banner-panable__product-condition {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  color: var(--color--light-black);
+}
+
+.banner-panable__product-price-drop{
+  text-transform: none;
+  text-decoration: line-through;
+  text-decoration-color: var(--color--light-black);
+  text-decoration-thickness: .08rem;
+  font-size: 10px;
+  align-self: center;
+}
+/*& BANNER__PANABLE  support for small screens */
+@media screen and (max-width: 520px) {
+
+  .banner-panable__product {
+    flex: 0 0 calc(100% - (1rem * 2));/* 1 column */
+  }
+
+}
+/*& BANNER__PANABLE  tablets */
+@media screen and (min-width:768px) {
+
+  .banner-panable__product {
+      flex: 0 0 calc(25% - (1rem * 2)); /* 4 columns */
+  }
+
+}
+  
