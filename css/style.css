@@ -15,6 +15,8 @@
 
 :root {
     --banner-main-height: 500px;
+    --m-unit--top-reviews-gap: 50px;
+
 
     /**COLORS*/
     /*! ******/
@@ -29,6 +31,7 @@
     --color--light-grey: #CBCBCB;
     --color--lighter-grey: #F8F8F8;
     --color--light-black: #424242;
+    --color--lighter-black: #4f4f4f;
     /*~ transparent */
     --color--transparent--thin-black: rgba(0, 0, 0, 0.2);
     --color--transparent--thinner-black: rgba(0, 0, 0, 0.1);

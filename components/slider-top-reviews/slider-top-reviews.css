@@ -1,0 +1,178 @@
+/** SLIDER */
+/*^ JS needed */
+
+.star {
+  clip-path: polygon(50% 0%, 63% 29%, 98% 35%, 71% 58%, 79% 91%, 50% 73%, 21% 91%, 29% 57%, 2% 35%, 37% 30%);
+  /*? the star has relative pos so that
+      if desired we can absolutely pos 
+      a half star inside it */
+  position: relative;
+}
+
+.star-half {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+  background-color: #f3f3f3;
+  clip-path: polygon(50% 0%, 63% 29%, 98% 35%, 71% 58%, 79% 91%, 50% 73%);
+}
+
+.top-reviews__wrap {
+  padding: 1.5rem;
+  padding-top: 0;
+  background-color: #ededed;
+}
+
+.top-reviews {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column; 
+  font-family: Roboto;
+}
+
+.top-reviews__total-reviews-ammount,
+.top-reviews__review-rating-date,
+.top-reviews__review-testimony {
+  color: #a2a2a2;
+  margin: 0;
+}
+
+
+.top-reviews__header {
+  /*? margin makes room for total reviews*/
+  margin-bottom: 1rem;
+  /*? padding keeps buttons from overlapping heading*/
+  padding-right: 4rem;
+}
+
+.top-reviews__heading {
+  font-family: Quantico;
+  font-size: 18px;
+  color: var(--color--light-black);
+}
+
+.top-reviews__total-reviews {
+  display: flex;
+  position: absolute;
+  top: 2.4rem;
+  right: 0; 
+}
+
+.top-reviews__dir-btn-wrap {
+  display: flex;
+  position: absolute;
+  top: 1rem;
+  right: 0;
+}
+
+.top-reviews__dir-btn,
+.top-reviews__dir-btn-icon {
+  background: none;
+  border: none;
+  height: 16px;
+}
+
+.top-reviews__total-reviews-star {
+  background-color: #B8865C;
+  min-width: 19px;
+  min-height: 18px;
+  width: 19px;
+  height: 18px;
+}
+
+.top-reviews__total-reviews-ammount {
+  font-size: 14px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-style: normal;
+}
+
+.top-reviews__slider {
+  display: flex;
+  gap: var(--m-unit--top-reviews-gap);
+  transition: transform 1.3s ease-out;
+  padding-left: 0px;
+}
+
+.top-reviews__review {
+  flex: 0 0 calc(33.33% - --m-unit--top-reviews-gap); /* Each review takes 33.33% of the width with a 50px gap */
+  min-width: calc(33.33% - var(--m-unit--top-reviews-gap));
+  max-width: calc(33.33% - var(--m-unit--top-reviews-gap));
+  display: flex;
+  flex-direction: column;
+  font-size: 24px;
+  overflow: visible;
+}
+
+.top-reviews__star--regular {
+  background-color: #B8865C;
+  min-width: 16px;
+  max-width: 16px;
+  min-height: 15px;
+  max-height: 15px;
+}
+  
+.top-reviews__review-rating {
+  display: flex;
+  position: relative;
+}
+
+.top-reviews__review-rating-date {
+  font-size: 12px;
+  font-style: italic;
+ position: relative;
+ top: 0.1rem;
+ left: 0.5rem;
+  transform: scale(1) rotate(0deg) translate(0px, 0px) skew(-5deg, 0deg);
+}
+
+.top-reviews__review-title {
+  font-size: 16px;
+  white-space: nowrap;
+  margin-bottom: 0.1rem;
+  margin-top: 0.5rem;
+  color: var(--color--lighter-black);
+}
+
+.top-reviews__review-testimony {
+  font-size: 12px;
+  font-style: italic;
+  margin-bottom: 0.2rem;
+  line-height: 1rem;
+}
+
+.top-reviews__review-signature {
+  font-size: 12px;
+  font-weight: 600;
+  font-style: normal;
+  color: #737373; 
+  margin: 0;
+}
+
+@media screen and (max-width: 450px) {
+  .top-reviews__total-reviews {
+    top: 3.7rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .top-reviews__review {
+    flex: 0 0 calc(50% - var(--m-unit--top-reviews-gap)); 
+    min-width: calc(50% - var(--m-unit--top-reviews-gap));
+    max-width: calc(50% - var(--m-unit--top-reviews-gap));
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .top-reviews__review {
+    flex: 0 0 calc(100% - var(--m-unit--top-reviews-gap)); 
+    min-width: calc(100% - var(--m-unit--top-reviews-gap));
+    max-width: calc(100% - var(--m-unit--top-reviews-gap));
+  }
+}
+
+
