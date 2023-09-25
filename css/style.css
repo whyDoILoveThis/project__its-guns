@@ -33,6 +33,7 @@
     --color--light-black: #424242;
     --color--lighter-black: #4f4f4f;
     /*~ transparent */
+    --color--transparent--thin-white: #ffffff4c;
     --color--transparent--thin-black: rgba(0, 0, 0, 0.2);
     --color--transparent--thinner-black: rgba(0, 0, 0, 0.1);
 }
@@ -46,6 +47,10 @@
 
 body {
     font-size: 62.5%;
+    background-image: url(/img/main-background.webp);
+    background-repeat: repeat;
+    background-size: 50px;
+
 }
 
 a {
@@ -56,6 +61,9 @@ a {
 .main-wrap {
     display: flex;
     flex-direction: column;
+    background-image: url(/img/main-background-overlay.png);
+    background-repeat: repeat;
+    background-size: 200px;
 }
 
 /** TYPOGRAPHY */
@@ -151,9 +159,9 @@ a {
 
 /*~ general content positioning */
 .nav-main {
-    background: url(/img/nav-main-background.jpg);
+    background: url(/img/footer-background.jpg);
     /*? create shadow overlay to darken img */
-    box-shadow: inset 0 0 0 2000px rgba(17, 17, 17, 0.645); 
+   
     background-position: center;
     background-size: 100%;
     display: flex;
@@ -322,6 +330,7 @@ a {
 /*~ js iterates through banner sections at set interval */
 .banner__section.active {
     opacity: 1;
+    z-index: 1;
 }
 
 /*& BANNER-MAIN background images */
@@ -385,17 +394,15 @@ a {
   then at the end there is no overflow to scroll because youre at the end*/
 
   .banner-panable {
-    background-color: #EDEDED;/*! REMOVE BEFORE USE*/
     font-family: Quantico, Arial, Helvetica, sans-serif;
     width: 100%;
     text-transform: uppercase;
     font-size: 16px;
-    padding: 1rem;
     }
     
     .banner-panable__see-all {
-      display: flex;
-      justify-content: flex-end;
+      position: absolute;
+      right: 1rem;
     }
     
     .banner-panable__see-all a {
@@ -419,6 +426,7 @@ a {
     
     .banner-panable__heading {
       margin: 1rem;
+      margin-top: 0.5rem;
       color: var(--color--deep-dark-blue);
     }
     
@@ -439,6 +447,7 @@ a {
       border: 1.2px solid;
       border-radius: 14px;
       margin: 0.5rem;
+      margin-top: 0;
     }
     
     .banner-panable__arrow:active,
@@ -595,7 +604,6 @@ a {
     /*& BANNER_SPOTLIGHT */
 
 .banner-spotlight {
-  height: 550px;
   color: white;
 }
 
@@ -608,6 +616,7 @@ a {
 }
 
 .banner-spotlight__spotlight {
+  min-height: 550px;
   background-position: center;
   background-size: cover;
   /*? for background-color visibility
@@ -648,9 +657,6 @@ a {
 }
 
 @media screen and (max-width: 1024px) {
-  .banner-spotlight {
-      height: 360vh;
-  }
   .banner-spotlight__grid {
       display: flex;
       flex-direction: column;
@@ -658,7 +664,7 @@ a {
   }
 
   .banner-spotlight__spotlight {
-      height: 70vh;
+      min-height: 350px;
   }
 }
 
@@ -666,24 +672,482 @@ a {
 
 .callout {
     margin: 1rem 0;
-}
-
-/*& callout for action */
-
-/*~ handles background img & children pos */
-.callout__action {
     width: 100%;
     height: auto;
-    background-image: url(/components/callout-button/callout-button-imgs/callout-background.jpg);
+    background-image: url(/img/blue-14.jpg);
+    background-size: 777px;
+    /*? flex allows a button to be placed if desired */
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1.5rem;
+    padding-bottom: 1.5rem;
 }
 
-.callout__action--heading {
+.callout--no-btn {
+  padding: 0 0 0.5rem 0;
+}
+
+.callout__heading {
     font-family: Roboto, Arial, Helvetica, sans-serif;
     font-size: 26px;
     text-transform: uppercase;
     color: white;
+    margin: 1.5rem 0 1rem 0;
 }
+
+/** SLIDER */
+/*^ JS needed */
+
+.star {
+  clip-path: polygon(50% 0%, 63% 29%, 98% 35%, 71% 58%, 79% 91%, 50% 73%, 21% 91%, 29% 57%, 2% 35%, 37% 30%);
+  /*? the star has relative pos so that
+      if desired we can absolutely pos 
+      a half star inside it */
+  position: relative;
+}
+
+.star-half {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+  background-color: #f3f3f3;
+  clip-path: polygon(50% 0%, 63% 29%, 98% 35%, 71% 58%, 79% 91%, 50% 73%);
+}
+
+.top-reviews__wrap {
+  padding: 1.5rem;
+  padding-top: 0;
+}
+
+.top-reviews {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column; 
+  font-family: Roboto;
+}
+
+.top-reviews__total-reviews-ammount,
+.top-reviews__review-rating-date,
+.top-reviews__review-testimony {
+  color: #a2a2a2;
+  margin: 0;
+}
+
+
+.top-reviews__header {
+  /*? margin makes room for total reviews*/
+  margin-bottom: 1rem;
+  /*? padding keeps buttons from overlapping heading*/
+  padding-right: 4rem;
+}
+
+.top-reviews__heading {
+  font-family: Quantico;
+  font-size: 18px;
+  color: var(--color--light-black);
+}
+
+.top-reviews__total-reviews {
+  display: flex;
+  position: absolute;
+  top: 2.4rem;
+  right: 0; 
+}
+
+.top-reviews__dir-btn-wrap {
+  display: flex;
+  position: absolute;
+  top: 1rem;
+  right: 0;
+}
+
+.top-reviews__dir-btn,
+.top-reviews__dir-btn-icon {
+  background: none;
+  border: none;
+  height: 16px;
+}
+
+.top-reviews__total-reviews-star {
+  background-color: #B8865C;
+  min-width: 19px;
+  min-height: 18px;
+  width: 19px;
+  height: 18px;
+}
+
+.top-reviews__total-reviews-ammount {
+  font-size: 14px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-style: normal;
+}
+
+.top-reviews__slider {
+  display: flex;
+  gap: var(--m-unit--top-reviews-gap);
+  transition: transform 1.3s ease-out;
+  padding-left: 0px;
+}
+
+.top-reviews__review {
+  flex: 0 0 calc(33.33% - --m-unit--top-reviews-gap); /* Each review takes 33.33% of the width with a 50px gap */
+  min-width: calc(33.33% - var(--m-unit--top-reviews-gap));
+  max-width: calc(33.33% - var(--m-unit--top-reviews-gap));
+  display: flex;
+  flex-direction: column;
+  font-size: 24px;
+  overflow: visible;
+}
+
+.top-reviews__star--regular {
+  background-color: #B8865C;
+  min-width: 16px;
+  max-width: 16px;
+  min-height: 15px;
+  max-height: 15px;
+}
+  
+.top-reviews__review-rating {
+  display: flex;
+  position: relative;
+}
+
+.top-reviews__review-rating-date {
+  font-size: 12px;
+  font-style: italic;
+ position: relative;
+ top: 0.1rem;
+ left: 0.5rem;
+  transform: scale(1) rotate(0deg) translate(0px, 0px) skew(-5deg, 0deg);
+}
+
+.top-reviews__review-title {
+  font-size: 16px;
+  white-space: nowrap;
+  margin-bottom: 0.1rem;
+  margin-top: 0.5rem;
+  color: var(--color--lighter-black);
+}
+
+.top-reviews__review-testimony {
+  font-size: 12px;
+  font-style: italic;
+  margin-bottom: 0.2rem;
+  line-height: 1rem;
+}
+
+.top-reviews__review-signature {
+  font-size: 12px;
+  font-weight: 600;
+  font-style: normal;
+  color: #737373; 
+  margin: 0;
+}
+
+@media screen and (max-width: 450px) {
+  .top-reviews__total-reviews {
+    top: 3.7rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .top-reviews__review {
+    flex: 0 0 calc(50% - var(--m-unit--top-reviews-gap)); 
+    min-width: calc(50% - var(--m-unit--top-reviews-gap));
+    max-width: calc(50% - var(--m-unit--top-reviews-gap));
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .top-reviews__review {
+    flex: 0 0 calc(100% - var(--m-unit--top-reviews-gap)); 
+    min-width: calc(100% - var(--m-unit--top-reviews-gap));
+    max-width: calc(100% - var(--m-unit--top-reviews-gap));
+  }
+}
+
+/** FOOTER */
+
+.footer__typography {
+  font-family: Roboto;
+  font-size: 16px;
+  color: white;
+}
+
+.footer__typography a {
+  color: white;
+}
+
+.footer__typography a:hover {
+  text-decoration: underline;
+}
+
+.footer__top {
+  display: flex;
+  justify-content: center;
+  background-color: #1A2B34;
+}
+
+.footer__top-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.footer {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ display: flex;
+ flex-direction: column;
+ gap: 1rem;
+ background-image: url(/img/footer-background.jpg);
+ background-position: center;
+ background-size: contain;
+}
+
+.footer__max-width-wrap {
+  max-width: calc(1170px + (2rem * 2));
+  position: relative;
+}
+
+.footer__sign-up-tagline {
+  font-weight: 500;
+  text-align: center;
+}
+
+.footer__stay-updated-tag {
+  font-size: 15px;
+  margin: 0;
+}
+
+.footer__terms-and-conditions {
+  font-size: 10px;
+  margin: 0;
+}
+
+.footer__sign-up {
+  display: flex;
+}
+
+.footer__sign-up-form {
+  font-size: 16px;
+  border: 0;
+  border-bottom: 1px solid var(--color--primary);
+  padding-bottom: 0.2rem;
+  margin: 0 1rem 0 1rem;
+  background-color: inherit;
+  caret-color: var(--color--primary);
+  color: var(--color--primary);
+}
+
+.footer__sign-up-form::placeholder {
+  color: var(--color--primary);
+}
+
+.footer__sign-up-btn {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.footer__social-link-wrap {
+ place-content: end center;
+ margin-left: auto;
+ display: flex;
+ align-items: center;
+}
+
+.footer__social-link-tagline {
+  font-size: 16px;
+  font-weight: 700;
+  margin-right: 1.5rem;
+  margin-left: 2rem;
+  padding-bottom: 0.3rem;
+  width: min-content;
+}
+
+.footer__social-link {
+  width: 27px;
+  margin: 2rem 1.5rem 2rem 0;
+}
+
+.footer__middle {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin: 3rem 2rem;
+  
+}
+
+.footer__main-background-holder {
+  background-image: url(/img/footer-background.jpg);
+  background-position: center;
+  background-size: contain;
+  padding: 2rem;
+}
+
+.footer__middle-left {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 30.5%;
+}
+
+.footer__help-main-contact {
+  display: flex;
+  gap: 4rem;
+}
+
+.footer__help-link-list-wrap {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 1rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+  
+}
+
+.footer__help-link-list-wrap::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  border-left: 1px solid var(--color--transparent--thin-white); 
+}
+
+.footer__help-link-list-wrap::after {
+  content: '';
+   position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  border-top: 1px solid var(--color--transparent--thin-white); 
+}
+
+.footer__help-link-holder{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding-top: 0.5rem;
+}
+
+.footer__help-link-icon {
+  width: 40px;
+  margin-right: 0.7rem;
+}
+
+.footer__faq-link {
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer__faq-link-icon {
+  margin: 0.5rem 0;
+  width: 35px;
+}
+
+.footer__email-link {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.footer__email-link-icon {
+  width: 35px;
+}
+
+/* Footer Help Link */
+.footer__help-link {
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.footer__help-contact {
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: none;
+  margin: 0;
+}
+
+.footer__middle-right::before {
+  content: ' ';
+  height: 100%;
+  width: 0;
+  border-right: 1px solid var(--color--transparent--thin-white)
+}
+
+.footer__middle-right {
+  display: flex;
+  gap: 2rem;
+  margin-left: 2rem;
+}
+
+.footer__main-link-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__main-link-list-heading {
+  text-transform: uppercase;
+  margin: 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color--transparent--thin-white);
+}
+
+.footer__main-link {
+  margin: 0.5rem 0 0.2rem 0;
+}
+
+.footer__bottom {
+  display: flex;
+  position: relative;
+  justify-content: space-evenly;
+  font-weight: 400;
+  padding-bottom: 1.4rem;
+}
+
+.footer__bottom-links {
+  display: flex;
+  gap: 0.5rem;
+  font-weight: 500;
+  margin-left: 1rem;
+}
+
+.footer__logo {
+  width: 170px;
+}
+
+.footer__address {
+  font-size: 12px;
+  display: inline;
+  line-height: 0;
+  margin-left: 0.5rem;
+  white-space: nowrap;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

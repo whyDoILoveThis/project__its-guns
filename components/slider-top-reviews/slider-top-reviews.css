@@ -1,6 +1,10 @@
 /** SLIDER */
 /*^ JS needed */
 
+:root {
+  --m-unit--top-reviews-gap: 50px;
+}
+
 .star {
   clip-path: polygon(50% 0%, 63% 29%, 98% 35%, 71% 58%, 79% 91%, 50% 73%, 21% 91%, 29% 57%, 2% 35%, 37% 30%);
   /*? the star has relative pos so that
