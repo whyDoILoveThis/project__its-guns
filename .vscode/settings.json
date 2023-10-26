@@ -56,5 +56,6 @@
       "strikethrough": false,
       "backgroundColor": "transparent"
     }
-  ]
+  ],
+  "liveServer.settings.port": 5501
 }

@@ -304,8 +304,6 @@ a {
 
 /*~ positioning & drop-shadow */
 .banner__section {
-    width: 100%;
-    height: var(--banner-main-height);
     /*? so they all overlap */
     position: absolute;
     left: 0;
@@ -327,6 +325,7 @@ a {
     align-items: center;
     text-align: center;
 }
+
 /*~ js iterates through banner sections at set interval */
 .banner__section.active {
     opacity: 1;
